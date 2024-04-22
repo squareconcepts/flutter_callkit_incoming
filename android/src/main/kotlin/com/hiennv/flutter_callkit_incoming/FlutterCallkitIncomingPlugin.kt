@@ -53,7 +53,9 @@ class FlutterCallkitIncomingPlugin : FlutterPlugin, MethodCallHandler, ActivityA
                         Log.d(EXTRA_CALLKIT_CALL_DATA, e.toString())
                     }
                 }
-            } else if (event == CallkitConstants.ACTION_CALL_TIMEOUT) {
+            } 
+            
+            if (event == CallkitConstants.ACTION_CALL_TIMEOUT) {
                 for ((name, channel) in methodChannels) {
                     try {
                         channel.invokeMethod("CALL_TIMEOUT_CUSTOM", "")
