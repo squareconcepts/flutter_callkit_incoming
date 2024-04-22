@@ -25,7 +25,8 @@ class CallKitParams {
       this.headers,
       this.android,
       this.ios,
-      this.onDecline});
+      this.onDecline,
+      this.onTimeout});
 
   final String? id;
   final String? nameCaller;
@@ -44,6 +45,8 @@ class CallKitParams {
   final IOSParams? ios;
   @JsonKey(includeFromJson: false, includeToJson: false)
   final Function(String reason)? onDecline;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  final Function(String reason)? onTimeout;
 
   factory CallKitParams.fromJson(Map<String, dynamic> json) =>
       _$CallKitParamsFromJson(json);

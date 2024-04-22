@@ -45,6 +45,8 @@ class FlutterCallkitIncoming {
     _channel.setMethodCallHandler((call) async {
       if (call.method == 'CALL_DECLINED_CUSTOM') {
         params.onDecline?.call(call.arguments);
+      } else if (call.method == 'CALL_TIMEOUT_CUSTOM') {
+        params.onTimeout?.call(call.arguments);
       }
     });
   }
