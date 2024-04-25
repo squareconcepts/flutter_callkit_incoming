@@ -272,7 +272,7 @@ public class SwiftFlutterCallkitIncomingPlugin: NSObject, FlutterPlugin, CXProvi
             self.data = data
         }
         initCallkitProvider(data)
-        self.callManager.startCall(data)
+        // self.callManager.startCall(data)
     }
     
     @objc public func muteCall(_ callId: String, isMuted: Bool) {
