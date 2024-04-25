@@ -272,7 +272,7 @@ public class SwiftFlutterCallkitIncomingPlugin: NSObject, FlutterPlugin, CXProvi
             self.data = data
         }
         initCallkitProvider(data)
-        // self.callManager.startCall(data)
+        self.callManager.startCall(data)
     }
     
     @objc public func muteCall(_ callId: String, isMuted: Bool) {
@@ -527,11 +527,11 @@ public class SwiftFlutterCallkitIncomingPlugin: NSObject, FlutterPlugin, CXProvi
         }
         self.answerCall = call
         sendEvent(SwiftFlutterCallkitIncomingPlugin.ACTION_CALL_ACCEPT, self.data?.toJSON())
-        if let appDelegate = UIApplication.shared.delegate as? CallkitIncomingAppDelegate {
-            appDelegate.onAccept(call, action)
-        }else {
+        // if let appDelegate = UIApplication.shared.delegate as? CallkitIncomingAppDelegate {
+        //     appDelegate.onAccept(call, action)
+        // }else {
             action.fulfill()
-        }
+        // }
     }
     
     
